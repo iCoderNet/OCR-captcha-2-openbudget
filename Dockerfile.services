@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install only the non-ML dependencies first for layer caching
+COPY requirments.txt .
+RUN pip install --no-cache-dir -r requirments.txt
+
+COPY main.py openbudget_api.py predict.py segment.py ./
