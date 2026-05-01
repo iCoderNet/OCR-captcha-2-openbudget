@@ -9,7 +9,6 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_HOURS: int = 24
 
-    OCR_API_URL: str = "http://ocr_api:8520"
     PROXY_API_URL: str = "http://proxy_api:8521"
 
     ADMIN_EMAIL: str = "admin@example.com"

@@ -31,7 +31,6 @@ DEFAULT_PRICES = [
     ("POST", "/vote/start",                          Decimal("0.0100"), "Vote start (captcha+OTP)"),
     ("POST", "/vote/{otp_key}/verify",               Decimal("0.0050"), "Vote OTP verify"),
     ("POST", "/vote/initiative-token",               Decimal("0.0050"), "Initiative token"),
-    ("POST", "/ocr",                                 Decimal("0.0020"), "Direct OCR inference"),
 ]
 
 

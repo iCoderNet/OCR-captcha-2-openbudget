@@ -1,5 +1,5 @@
 numpy==2.2.6
-opencv-python==4.11.0.86
+opencv-python-headless==4.11.0.86
 pillow==11.2.1
 torch==2.7.1
 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cpu

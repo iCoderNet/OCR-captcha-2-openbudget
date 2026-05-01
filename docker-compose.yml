@@ -21,16 +21,7 @@ services:
     volumes:
       - redis_data:/data
 
-  # ── ML / Proxy services (internal only) ───────────────────────────────────
-  ocr_api:
-    build:
-      context: .
-      dockerfile: Dockerfile.services
-    command: uvicorn main:app --host 0.0.0.0 --port 8520
-    volumes:
-      - ./symbol_cnn_model.pt:/app/symbol_cnn_model.pt:ro
-    restart: unless-stopped
-
+  # ── Proxy service (internal only) ─────────────────────────────────────────
   proxy_api:
     build:
       context: .
@@ -46,7 +37,6 @@ services:
       context: ./gateway
     env_file: ./gateway/.env
     environment:
-      OCR_API_URL: http://ocr_api:8520
       PROXY_API_URL: http://proxy_api:8521
     ports:
       - "8000:8000"
@@ -54,8 +44,6 @@ services:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
-      ocr_api:
         condition: service_started
       proxy_api:
         condition: service_started

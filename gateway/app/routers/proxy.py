@@ -23,7 +23,6 @@ PROXY_ROUTES = [
     ("POST", "/vote/start"),
     ("POST", "/vote/{otp_key}/verify"),
     ("POST", "/vote/initiative-token"),
-    ("POST", "/ocr"),
 ]
 
 
